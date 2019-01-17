@@ -215,7 +215,7 @@ private:
     size_t offset() const { return m_offset; }
     const crypto::hash &genesis() const { return m_genesis; }
     void push_back(const crypto::hash &hash) { if (m_offset == 0 && m_blockchain.empty()) m_genesis = hash; m_blockchain.push_back(hash); }
-    bool is_in_bounds(size_t idx) const { return idx >= m_offset && idx < size(); }
+    bool is_in_bounds(size_t idx) const { return (idx >= m_offset && idx < size()) || size() == 0; }
     const crypto::hash &operator[](size_t idx) const { return m_blockchain[idx - m_offset]; }
     crypto::hash &operator[](size_t idx) { return m_blockchain[idx - m_offset]; }
     void crop(size_t height) { m_blockchain.resize(height - m_offset); }
