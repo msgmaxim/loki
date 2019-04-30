@@ -61,11 +61,11 @@ namespace service_nodes {
   constexpr size_t   SWARM_BUFFER                     = 5;
   // if a swarm has strictly less nodes than this, it is considered unhealthy
   // and nearby swarms will mirror it's data. It will disappear, and is already considered gone.
-  constexpr size_t   MIN_SWARM_SIZE                   = 5;
-  constexpr size_t   IDEAL_SWARM_MARGIN               = 2;
+  constexpr size_t   MIN_SWARM_SIZE                   = 3;
+  constexpr size_t   IDEAL_SWARM_MARGIN               = 1;
   constexpr size_t   IDEAL_SWARM_SIZE                 = MIN_SWARM_SIZE + IDEAL_SWARM_MARGIN;
   constexpr size_t   EXCESS_BASE                      = MIN_SWARM_SIZE;
-  constexpr size_t   NEW_SWARM_SIZE                   = IDEAL_SWARM_SIZE;
+  constexpr size_t   NEW_SWARM_SIZE                   = MIN_SWARM_SIZE;
   // The lower swarm percentile that will be randomly filled with new service nodes
   constexpr size_t   FILL_SWARM_LOWER_PERCENTILE      = 25;
   // Redistribute snodes from decommissioned swarms to the smallest swarms

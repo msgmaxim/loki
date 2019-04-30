@@ -449,7 +449,7 @@ namespace nodetool
     std::set<std::string> full_addrs;
     if (nettype == cryptonote::TESTNET)
     {
-      full_addrs.insert("52.63.146.137:38156");
+      full_addrs.insert("3.104.19.14:38156");
     }
     else if (nettype == cryptonote::STAGENET)
     {
@@ -2010,12 +2010,14 @@ namespace nodetool
     }
 
 #if !defined(LOKI_ENABLE_INTEGRATION_TEST_HOOKS)
+#if 0
     if(has_too_many_connections(context.m_remote_address))
     {
       LOG_PRINT_CCONTEXT_L1("CONNECTION FROM " << context.m_remote_address.host_str() << " REFUSED, too many connections from the same address");
       drop_connection(context);
       return 1;
     }
+#endif
 #endif
 
     //associate peer_id with this connection

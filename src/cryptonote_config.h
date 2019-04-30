@@ -225,16 +225,15 @@ namespace config
     uint16_t const RPC_DEFAULT_PORT = 38157;
     uint16_t const ZMQ_RPC_DEFAULT_PORT = 38158;
     boost::uuids::uuid const NETWORK_ID = { {
-        0x5f, 0x3a, 0x78, 0x65, 0xe1, 0x6f, 0xca, 0xb8, 0x02, 0xa1, 0xdc, 0x17, 0x61, 0x64, 0x15, 0xbe,
+        0xe2, 0xc8, 0x62, 0xb3, 0xdf, 0xa4, 0x12, 0x13, 0x0c, 0xf5, 0x9d, 0x16, 0x4b, 0xa8, 0x47, 0x2b
       } }; // Bender's daydream
-    std::string const GENESIS_TX = "03011e001e01ff00018080c9db97f4fb270259b546996f69aa71abe4238995f41d780ab1abebcac9f00e808f147bdb9e3228420112573af8c309b69a1a646f41b5212ba7d9c4590bf86e04f36c486467cfef9d3d72000000000000000000000000000000000000000000000000000000000000000000";
+    std::string const GENESIS_TX = "021e01ff00018080c9db97f4fb2702e7c89d4bad7e336e5e59754c05e4fd269e282407edda10f49d4f0d73102ab5094201a42f420b2f61071239ba956858f032789bf379ece2a1d91bf392661dbb9ee8cc72000000000000000000000000000000000000000000000000000000000000000000";
     uint32_t const GENESIS_NONCE = 10001;
 
     uint64_t const GOVERNANCE_REWARD_INTERVAL_IN_BLOCKS = 1000;
     std::string const GOVERNANCE_WALLET_ADDRESS[] =
     {
-      "T6SUprTYE5rQpep9iQFxyPcKVd91DFR1fQ1Qsyqp5eYLiFc8XuYd3reRE71qDL8c3DXioUbDEpDFdaUpetnL37NS1R3rzoKxi", // hardfork v7-9
-      "T6TzkJb5EiASaCkcH7idBEi1HSrpSQJE1Zq3aL65ojBMPZvqHNYPTL56i3dncGVNEYCG5QG5zrBmRiVwcg6b1cRM1SRNqbp44", // hardfork v10
+      "T6T42SuFdGVcyVa5E9gQzi9Vs1ULsNqe9K3RgKBgwf3vFP3KyHCuf9sBfWDQKjiakHHBRzK1YgQcqPP64DHEPQFi1M1GfrXQF"
     };
 
   }
@@ -359,11 +358,7 @@ namespace cryptonote
 
       case TESTNET:
       {
-        if (hard_fork_version <= network_version_9_service_nodes)
-          testnet.GOVERNANCE_WALLET_ADDRESS = &::config::testnet::GOVERNANCE_WALLET_ADDRESS[0];
-        else
-          testnet.GOVERNANCE_WALLET_ADDRESS = &::config::testnet::GOVERNANCE_WALLET_ADDRESS[1];
-
+        testnet.GOVERNANCE_WALLET_ADDRESS = &::config::testnet::GOVERNANCE_WALLET_ADDRESS[0];
         return testnet;
       }
 
