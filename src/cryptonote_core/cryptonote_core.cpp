@@ -1423,6 +1423,7 @@ namespace cryptonote
     if (elapsed > STORAGE_SERVER_PING_LIFETIME) {
       MWARNING("Have not heard from the storage server since at least: "
       << epee::misc_utils::get_time_str(last_ping));
+      MERROR("(" << elapsed << " seconds ago)");
       return false;
     }
 
@@ -1431,6 +1432,7 @@ namespace cryptonote
   //-----------------------------------------------------------------------------------------------
   void core::update_storage_server_last_ping()
   {
+    MGINFO(">> PINGED FROM THE STORAGE SERVER!");
     m_last_storage_server_ping.store(std::time(nullptr));
   }
   //-----------------------------------------------------------------------------------------------
